@@ -1,0 +1,20 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <!-- 如果没有获取到用户相关信息 -->
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <!-- 如果已经获取到用户相关信息 -->
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <!-- <text class="user-motto">{{motto}}</text> -->
+    <text class="user-motto">{{name}}</text>
+  </view>
+  <!--增加一个跳转按钮-->
+  <view class="usermotto">
+    <button bindtap="bindViewTaptoHome" class="tohome-avatar" src="{{userInfo.avatarUrl}}" mode="cover">首页</button>
+  </view>
+</view>
